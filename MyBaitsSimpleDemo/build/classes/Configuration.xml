@@ -7,7 +7,7 @@
         <typeAlias alias="User" type="com.mybatis.test.User"/> 
         <typeAlias alias="Article" type="com.mybatis.test.Article"/> 
         <typeAlias alias="Blog" type="com.mybatis.test.Blog"/>
-    </typeAliases> 
+    </typeAliases>  
 
     <environments default="development">
         <environment id="development">
