@@ -50,20 +50,22 @@ public class HttpClientDemo
 		String password = "123456";// 登录密码
 
         // 需要提交登录的信息
-		String urlLogin = "http://localhost:8080/roleplay/login?username=" + username + "&password=" + password;
+		String urlLogin = "http://localhost:8082/roleplay/login?username=" + username + "&password=" + password;
 
         // 登录成功后想要访问的页面 可以是下载资源 需要替换成自己的iteye Blog地址
-		String urlAfter = "http://localhost:8080/roleplay/form/object/getDataJson?"
-				+ "fieldCode=fgouty&filter=003&selectType=single&existObjCode=outy_0000030001&"
-				+ "fgouty.fgouty001operator=and&filtervalue0=aa&filtercondition0=EQUAL&filteroperator0=0&filterdatafield0=fgouty.fgouty001"
-				+ "&filtervalue1=bb&filtercondition1=EQUAL&filteroperator1=0&filterdatafield1"
-				+ "=fgouty.fgouty001&fgouty.fgouty002operator=and&filtervalue2=cc&"
-				+ "filtercondition2=EQUAL&filteroperator2=1&filterdatafield2=fgouty.fgouty002&"
-				+ "filtervalue3=dd&filtercondition3=EQUAL&filteroperator3=1&filterdatafield3=fgouty.fgouty002"
-				+ "&fgouty.fgouty003operator=and&filtervalue4=ee&filtercondition4=EQUAL&filteroperator4=0&"
-				+ "filterdatafield4=fgouty.fgouty003&filtervalue5=ff&filtercondition5=EQUAL&filteroperator5=0&"
-				+ "filterdatafield5=fgouty.fgouty003&filterscount=6&groupscount=0&pagenum=0&pagesize=10&recordstartindex=0&"
-				+ "recordendindex=10&gridInfo=R&_=1453883755409";
+		/* String urlAfter = "http://localhost:8080/roleplay/form/object/getDataJson?"
+		 * + "fieldCode=fgouty&filter=003&selectType=single&existObjCode=outy_0000030001&"
+		 * + "fgouty.fgouty001operator=and&filtervalue0=aa&filtercondition0=EQUAL&filteroperator0=0&filterdatafield0=fgouty.fgouty001"
+		 * + "&filtervalue1=bb&filtercondition1=EQUAL&filteroperator1=0&filterdatafield1"
+		 * + "=fgouty.fgouty001&fgouty.fgouty002operator=and&filtervalue2=cc&"
+		 * + "filtercondition2=EQUAL&filteroperator2=1&filterdatafield2=fgouty.fgouty002&"
+		 * + "filtervalue3=dd&filtercondition3=EQUAL&filteroperator3=1&filterdatafield3=fgouty.fgouty002"
+		 * + "&fgouty.fgouty003operator=and&filtervalue4=ee&filtercondition4=EQUAL&filteroperator4=0&"
+		 * + "filterdatafield4=fgouty.fgouty003&filtervalue5=ff&filtercondition5=EQUAL&filteroperator5=0&"
+		 * + "filterdatafield5=fgouty.fgouty003&filterscount=6&groupscount=0&pagenum=0&pagesize=10&recordstartindex=0&"
+		 * + "recordendindex=10&gridInfo=R&_=1453883755409"; */
+
+		String urlAfter = "http://localhost:8082/roleplay/form/template/getTemplateModelJson?id=temp2ddeb852b3f94a08ace7c5c319c761a1";
 
         DefaultHttpClient client = new DefaultHttpClient(new PoolingClientConnectionManager());
 
@@ -96,6 +98,8 @@ public class HttpClientDemo
 
 		String str = convertStreamToString(entity.getContent());
 		System.err.println(str);
+		FileUtils.writeToFile("d://test.json", str, false);
+
     }
 
     /**
